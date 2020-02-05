@@ -12,6 +12,7 @@ let tasks = [
 
 function addTask() {
   tasks.push(new Task());
+  tasks = tasks;
 }
 
 function removeTask(task) {
