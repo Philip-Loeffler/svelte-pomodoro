@@ -1,20 +1,36 @@
 <script>
 function minutesToSeconds(minutes) {
     minutes * 60;
-    return minutes; 
+    return minutes;
 }
-const pomodoroTime = minutesToSeconds(25);
+
+function secondsToMinutes(seconds) {
+    Math.floor(seconds / 60);
+    return seconds;
+}
+
+function padWithZeroes(number) {
+    number.toString().padStart(2, '0');
+    return number; 
+}
+
+const POMODORO_S = minutesToSeconds(25);
+  let pomodoroTime = POMODORO_S;
 
 
-function formatTime(timeInSecond) {
+  function formatTime(timeInSeconds) { 
+    const remainingSeconds = timeInSeconds % 60;
     const minutes = secondsToMinutes(timeInSeconds);
-    const remainingSeconds = timeInSecond % 60;
-    return `${padWithZeros(minutes)} :${padWithZeros(remainingSeconds)}`;
-}
+    return `${padWithZeroes(minutes)}:${padWithZeroes(remainingSeconds)}`;
+  }
 
-function startPomodoro() {
-
+function startPomodoro() { 
+  setInterval(() => {
+    pomodoroTime -= 1;
+  },1000);
+  pomodoroTime = pomodoroTime;
 }
 </script>
-<p>im a timer yo!</p>
+
+<p>{formatTime(pomodoroTime)}</p>
 <button on:click{startPomodoro}>Start timer</button>
