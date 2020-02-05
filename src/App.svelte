@@ -1,10 +1,12 @@
 <script>
 	import TaskList from './Tasks/TaskList.svelte';
+	import PomodoroTimer from './Tasks/PomodoroTimer.svelte';
 	export let title;
 </script>
 
 <main>
 	<h1>{title}</h1>
+	<PomodoroTimer></PomodoroTimer>
 	<TaskList></TaskList>
 </main>
 
